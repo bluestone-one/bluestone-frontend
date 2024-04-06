@@ -1,6 +1,19 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+
+import { CustomProvider } from "rsuite";
+
+import "rsuite/dist/rsuite-no-reset.min.css";
+import "@rainbow-me/rainbowkit/styles.css";
+
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import "./globals.css";
+
+import { Web3Providers } from "@/provider/Web3Providers";
+
+import Nav from "./_components/Nav";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +29,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <CustomProvider theme="dark">
+          <Web3Providers>
+            <Nav />
+            {children}
+            <ToastContainer />
+          </Web3Providers>
+        </CustomProvider>
+      </body>
     </html>
   );
 }

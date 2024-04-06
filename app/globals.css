@@ -26,6 +26,10 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+.rs-picker-toggle-label:after{
+  content: none;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
