@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 19, 21, 23;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  .rs-picker-popup-date {
+    z-index: 10;
+  }
+}
+
+.rs-picker-toggle-label:after {
+  content: none;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+input::placeholder,
+textarea::placeholder {
+  --tw-placeholder-opacity: 1;
+  color: rgb(220, 220, 220) !important;
+}
+
+.createInputBox {
+  .input-ghost:focus,
+  .input-ghost:focus-within {
+    --tw-bg-opacity: 0.3;
+    background-color: var(
+      --fallback-b1,
+      oklch(var(--b1) / var(--tw-bg-opacity))
+    );
+  }
+
+  .rs-input,
+  .rs-input-group,
+  .rs-input-group-inside {
+    background-color: var(
+      --fallback-b1,
+      oklch(var(--b1) / var(--tw-bg-opacity))
+    );
+    border-color: transparent;
+
+    &:focus {
+      box-shadow: none;
+      border-color: var(--fallback-bc, oklch(var(--bc) / 0.2));
+      outline-style: solid;
+      outline-width: 2px;
+      outline-offset: 2px;
+      outline-color: var(--fallback-bc, oklch(var(--bc) / 0.2));
+    }
+  }
+
+  .rs-input-group {
+    .rs-input {
+      background-color: transparent;
+    }
+  }
+  .rs-toggle-presentation {
+    --tw-bg-opacity: 0.3;
+    background-color: var(
+      --fallback-b1,
+      oklch(var(--b1) / var(--tw-bg-opacity))
+    );
+    &:hover {
+      --tw-bg-opacity: 0.7;
+      background-color: var(
+        --fallback-b1,
+        oklch(var(--b1) / var(--tw-bg-opacity))
+      );
+    }
+  }
+}

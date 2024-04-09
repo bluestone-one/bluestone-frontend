@@ -11,7 +11,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
+    --background-start-rgb: 19, 21, 23;
     --background-end-rgb: 0, 0, 0;
   }
 }
@@ -26,7 +26,7 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-.rs-picker-toggle-label:after{
+.rs-picker-toggle-label:after {
   content: none;
 }
 

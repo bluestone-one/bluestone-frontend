@@ -41,7 +41,7 @@ const Nav = () => {
   }, []);
 
   return (
-    <div className=" relative">
+    <div className=" relative z-20">
       <div
         id="ticket_nav"
         className="fixed top-0 left-0 w-full z-20 items-center flex justify-between p-3"
@@ -54,7 +54,7 @@ const Nav = () => {
             <Link
               href={"/"}
               className={`flex gap-2 items-center font-bold ${
-                pathname === "/" ? "text-gray-200" : "text-gray-500"
+                pathname === "/" ? "text-gray-300" : "text-gray-400"
               }  hover:text-gray-200 transition-all`}
             >
               {" "}
@@ -64,7 +64,7 @@ const Nav = () => {
             <Link
               href={"/create"}
               className={`flex gap-2 items-center font-bold ${
-                pathname === "/create" ? "text-gray-200" : "text-gray-500"
+                pathname === "/create" ? "text-gray-300" : "text-gray-400"
               }  hover:text-gray-200 transition-all`}
             >
               {" "}
@@ -82,7 +82,14 @@ const Nav = () => {
         id="navMask"
         className="fixed top-0 left-0 w-full h-[64px] z-10 pointer-events-none"
       ></div>
-      <div className=" absolute top-0 left-0 w-full  bg-gradient-to-b from-blue-900 to-base-1000 h-[15vh] pointer-events-none"></div>
+      {/* <div className=" absolute top-0 left-0 w-full  bg-gradient-to-b from-blue-900 to-base-1000 h-[15vh] pointer-events-none"></div> */}
+      <div
+        className=" absolute top-0 left-0 w-full h-[18vh] pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(rgba(82, 0, 255, 0.2) 0%, rgba(0, 102, 255, 0.1) 52.58%, rgba(6, 45, 103, 0) 100%)",
+        }}
+      ></div>
     </div>
   );
 };

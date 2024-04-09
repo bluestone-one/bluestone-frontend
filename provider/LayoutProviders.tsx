@@ -15,6 +15,8 @@ import { useState, useEffect } from "react";
 import { GlobalProvider } from "@/context/global";
 import { SWRConfig } from "swr";
 
+import { CustomProvider } from "rsuite";
+
 export const queryClient = new QueryClient();
 
 export const chainsConf = [
@@ -52,8 +54,10 @@ export const chainsConf = [
 
 /* New RainbowKit API */
 export const wagmiConfig = getDefaultConfig({
-  appName: "bluestone",
-  projectId: `${process.env.NEXT_PUBLIC_WALLET_PROJECTID}`,
+  appName: "Dapp-Learning",
+  projectId:
+    "0d4ebf4dd799531d3023b883c7a6dc3c" ||
+    `${process.env.NEXT_PUBLIC_WALLET_PROJECTID}`,
   ssr: true,
   // @ts-ignore
   chains: chainsConf,
@@ -61,7 +65,7 @@ export const wagmiConfig = getDefaultConfig({
 
 const AUTHENTICATION_STATUS = "unauthenticated";
 
-export function Web3Providers({ children }: { children: React.ReactNode }) {
+export function LayoutProviders({ children }: { children: React.ReactNode }) {
   const [authState, setAuthState] =
     useState<AuthenticationStatus>("unauthenticated");
 
@@ -138,7 +142,7 @@ export function Web3Providers({ children }: { children: React.ReactNode }) {
                     fetch(resource, init).then((res) => res.json()),
                 }}
               >
-                {children}
+                <CustomProvider theme="dark">{children}</CustomProvider>
               </SWRConfig>
             </RainbowKitProvider>
           </RainbowKitAuthenticationProvider>

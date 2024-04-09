@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import TicketList from "./_components/TicketList";
+import EventList from "./_components/EventList";
 
 export default function Home() {
   return (
     <main className="min-h-screen justify-between pt-[9rem]">
-      <TicketList />
+      <EventList />
     </main>
   );
 }
