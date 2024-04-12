@@ -14,6 +14,9 @@ dependencies:
   '@rainbow-me/rainbowkit':
     specifier: ^2.0.2
     version: 2.0.4(@types/react@18.2.74)(react-dom@18.2.0)(react@18.2.0)(viem@2.8.18)(wagmi@2.5.18)
+  '@rsuite/icons':
+    specifier: ^1.0.3
+    version: 1.0.3(react-dom@18.2.0)(react@18.2.0)
   '@tanstack/react-query':
     specifier: ^5.28.4
     version: 5.28.14(react@18.2.0)
