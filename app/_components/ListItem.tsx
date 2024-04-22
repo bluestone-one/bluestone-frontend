@@ -2,14 +2,22 @@ import { AiOutlineEnvironment } from "react-icons/ai";
 import { Divider } from "rsuite";
 import Image from "next/image";
 
+import Link from "next/link";
+
 const ListItem = ({ ticketInfo }: any) => {
   return (
-    <div className="card card-side bg-base-100 shadow-xl w-full cursor-pointer group hover:shadow-custom hover:translate-x-[-1%] transition-scale  hover:scale-[1.01]">
-      <figure className=" p-3">
+    <Link
+      href={`/event/manage/${ticketInfo.id}`}
+      className="card card-side bg-base-100 shadow-xl w-full cursor-pointer group hover:shadow-custom hover:translate-x-[-1%] transition-scale  hover:scale-[1.01]"
+    >
+      <figure className=" p-3 w-[160px] h-[160px]">
         <img
-          src="https://daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.jpg"
+          src={
+            ticketInfo?.coverImg ||
+            "https://daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.jpg"
+          }
           alt="Movie"
-          className=" max-h-[160px] rounded-lg transition-all duration-100"
+          className=" w-full h-full rounded-lg transition-all duration-100 object-cover"
         />
       </figure>
       <div className="card-body p-5 border-l-2 border-dashed ml-2 border-gray-500">
@@ -33,7 +41,7 @@ const ListItem = ({ ticketInfo }: any) => {
           <button className="btn btn-primary">Join</button>
         </div> */}
       </div>
-    </div>
+    </Link>
   );
 };
 
