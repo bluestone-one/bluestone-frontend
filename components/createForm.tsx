@@ -166,7 +166,7 @@ const CreateForm = () => {
             fileListVisible={false}
             listType="picture"
             name="image"
-            action="https://api.imgbb.com/1/upload?expiration=600&key=fa1cabf7a3dcb056d876dc914da6e9db"
+            action="https://api.imgbb.com/1/upload?key=fa1cabf7a3dcb056d876dc914da6e9db"
             onUpload={(file) => {
               setUploading(true);
               previewFile(file.blobFile, (value: any) => {

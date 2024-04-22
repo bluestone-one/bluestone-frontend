@@ -5,10 +5,7 @@ import Image from "next/image";
 const ListItemSkeleton = ({ ticketInfo }: any) => {
   return (
     <div className="card card-side bg-base-100 shadow-xl w-full">
-      <figure className=" p-3">
-        <div className="skeleton w-[160px] h-[160px] rounded-lg transition-all duration-100"></div>
-      </figure>
-      <div className="card-body p-5 border-l-2 border-dashed ml-2 border-gray-700">
+      <div className="card-body p-5 border-r-2 border-dashed ml-2 border-gray-700">
         <h2 className="card-title">
           <div className="skeleton h-7 w-[30%]"></div>
         </h2>
@@ -31,6 +28,9 @@ const ListItemSkeleton = ({ ticketInfo }: any) => {
           <button className="btn btn-primary">Join</button>
         </div> */}
       </div>
+      <figure className=" p-3 w-[160px] h-[160px]">
+        <div className="skeleton  rounded-lg transition-all duration-100"></div>
+      </figure>
     </div>
   );
 };
