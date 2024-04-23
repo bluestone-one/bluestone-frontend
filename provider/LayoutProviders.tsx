@@ -17,6 +17,8 @@ import { SWRConfig } from "swr";
 
 import { CustomProvider } from "rsuite";
 
+import { EventDrawerProvider } from "@/context/eventDrawer";
+
 export const queryClient = new QueryClient();
 
 export const chainsConf = [
@@ -142,7 +144,9 @@ export function LayoutProviders({ children }: { children: React.ReactNode }) {
                     fetch(resource, init).then((res) => res.json()),
                 }}
               >
-                <CustomProvider theme="dark">{children}</CustomProvider>
+                <CustomProvider theme="dark">
+                  <EventDrawerProvider> {children}</EventDrawerProvider>
+                </CustomProvider>
               </SWRConfig>
             </RainbowKitProvider>
           </RainbowKitAuthenticationProvider>

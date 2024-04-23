@@ -14,8 +14,17 @@ import { BsCupHot } from "react-icons/bs";
 import "./TimeLine.config.css";
 import SpinnerIcon from "@rsuite/icons/legacy/Spinner";
 
+import { useEventDrawerContext } from "@/context/eventDrawer";
+
 const EventList = () => {
   const { data, error, isLoading } = useSWR("/baseAPI/event/all");
+  const { isOpen, setIsOpen, setEventTarget } = useEventDrawerContext();
+
+  const onItemClick = (target: any) => {
+    if (!setIsOpen || !setEventTarget) return;
+    setIsOpen(true);
+    setEventTarget(target);
+  };
 
   return (
     <div className=" max-w-[960px] flex ml-auto mr-auto">
@@ -58,7 +67,10 @@ const EventList = () => {
                   <div className=" text-gray-400 font-bold mb-3">
                     {dayjs(ticketInfo?.createdAt).format("YYYY-MM-DD HH:mm")}
                   </div>
-                  <ListItem ticketInfo={ticketInfo} />
+                  <ListItem
+                    onClick={() => onItemClick(ticketInfo)}
+                    ticketInfo={ticketInfo}
+                  />
                 </div>
                 <hr />
               </li>

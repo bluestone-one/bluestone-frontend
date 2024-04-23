@@ -4,10 +4,11 @@ import Image from "next/image";
 
 import Link from "next/link";
 
-const ListItem = ({ ticketInfo }: any) => {
+const ListItem = ({ ticketInfo, onClick }: any) => {
   return (
-    <Link
-      href={`/event/manage/${ticketInfo.id}`}
+    <div
+      // href={`/event/manage/${ticketInfo.id}`}
+      onClick={onClick}
       className="card card-side bg-base-100 shadow-xl w-full cursor-pointer group hover:shadow-custom hover:translate-x-[-1%] transition-scale  hover:scale-[1.01]"
     >
       <div className="card-body p-5 border-r-2 border-dashed ml-1 border-gray-500">
@@ -41,7 +42,7 @@ const ListItem = ({ ticketInfo }: any) => {
           className=" w-full h-full rounded-lg transition-all duration-100 object-cover"
         />
       </figure>
-    </Link>
+    </div>
   );
 };
 
