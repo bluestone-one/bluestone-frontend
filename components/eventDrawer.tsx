@@ -65,16 +65,18 @@ export default function EventDrawer() {
               <div className=" text-3xl font-bold capitalize mb-2">
                 {eventTarget?.name}
               </div>
-              <div className=" capitalize flex items-center text-base	">
-                <div className="avatar mr-2">
-                  <div className="w-5 rounded-full">
-                    <img
-                      src={`https://effigy.im/a/${eventTarget?.creatorWalletAddress}.png`}
-                    />
+              {eventTarget?.creatorWalletAddress && (
+                <div className=" capitalize flex items-center text-base	">
+                  <div className="avatar mr-2">
+                    <div className="w-5 rounded-full">
+                      <img
+                        src={`https://effigy.im/a/${eventTarget?.creatorWalletAddress}.png`}
+                      />
+                    </div>
                   </div>
+                  created by : {truncate(eventTarget?.creatorWalletAddress)}{" "}
                 </div>
-                created by : {truncate(eventTarget?.creatorWalletAddress)}{" "}
-              </div>
+              )}
             </div>
             <div className=" flex flex-col ">
               <div className="flex gap-5 mt-3">
