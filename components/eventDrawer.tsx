@@ -13,11 +13,21 @@ import { truncate } from "@/utils/index";
 
 import { FaShareFromSquare } from "react-icons/fa6";
 
+import { CiSquareChevRight } from "react-icons/ci";
+
+import { FaRegCopy } from "react-icons/fa";
+
+import { FaShare } from "react-icons/fa";
+
+import { useRouter } from "next/navigation";
+
 import relativeTime from "dayjs/plugin/relativeTime";
 dayjs.extend(relativeTime);
 
 export default function EventDrawer() {
   const { isOpen, setIsOpen, eventTarget } = useEventDrawerContext();
+
+  const router = useRouter();
 
   return (
     <div className="drawer drawer-end z-20">
@@ -36,8 +46,27 @@ export default function EventDrawer() {
           className="drawer-overlay"
           onClick={() => setIsOpen?.(false)}
         ></label>
-        <div className="menu p-4 w-[35rem] min-h-full bg-base-200 ">
-          <div className=" flex flex-col bg-base-200 text-white gap-6 pr-3">
+        <div className="menu w-[35rem] min-h-full bg-base-200 p-0">
+          <div className=" w-full border-b-[1px] border-gray-600 flex items-center justify-between">
+            <CiSquareChevRight
+              onClick={() => setIsOpen?.(false)}
+              className=" w-9 h-9 ml-2 cursor-pointer text-gray-300 hover:text-gray-50"
+            />
+            <div className=" p-4 flex items-center pr-6 gap-3">
+              <div className="btn btn-sm btn-neutral">
+                <FaRegCopy />
+                Copy Link
+              </div>
+              <Link
+                href={`/${eventTarget?.id}`}
+                className="btn btn-sm btn-neutral"
+              >
+                Open Event Page
+                <FaShare />
+              </Link>
+            </div>
+          </div>
+          <div className="p-4 flex flex-col bg-base-200 text-white gap-6 pr-7">
             <div
               role="alert"
               className=" mt-3 bg-[#e6658a] flex justify-between rounded-2xl bg-opacity-15 p-5 pt-2 pb-2 items-center border border-[#de316322]"
