@@ -16,6 +16,11 @@
   }
 }
 
+@font-face {
+  font-family: JostBlack;
+  src: url("../public/fonts/Jost-VariableFont_wght.ttf");
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -34,4 +39,11 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+#navTitle {
+  font-family: JostBlack;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  font-size: 1.3rem;
 }

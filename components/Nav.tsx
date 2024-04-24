@@ -47,8 +47,12 @@ const Nav = () => {
         className="fixed top-0 left-0 w-full z-20 items-center flex justify-between p-3"
       >
         <div className=" flex">
-          <Link href={"/"} className=" cursor-pointer flex-none w-min-[232px] ">
-            Ticket ✨
+          <Link
+            href={"/"}
+            id="navTitle"
+            className=" cursor-pointer flex-none w-min-[232px] capitalize "
+          >
+            bluestone ✨
           </Link>
           <div className=" ml-[12vw] flex gap-8">
             <Link
