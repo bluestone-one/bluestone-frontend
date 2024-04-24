@@ -6,6 +6,9 @@ import {
   createAuthenticationAdapter,
   RainbowKitAuthenticationProvider,
   AuthenticationStatus,
+  midnightTheme,
+  lightTheme,
+  darkTheme
 } from "@rainbow-me/rainbowkit";
 import { WagmiProvider } from "wagmi";
 import { optimism, arbitrum, zkSync, scroll, sepolia } from "wagmi/chains";
@@ -134,6 +137,14 @@ export function LayoutProviders({ children }: { children: React.ReactNode }) {
           >
             <RainbowKitProvider
               // avatar={CustomAvatar}
+              theme={{
+                lightMode: lightTheme(),
+                darkMode: darkTheme({
+                  // overlayBlur: "small",
+                  // accentColor: "#7b3fe4",
+                  // accentColorForeground: "white",
+                }),
+              }}
               showRecentTransactions
               modalSize="compact"
             >
