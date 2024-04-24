@@ -179,7 +179,7 @@ const CreateForm = () => {
                 <Message type="success">Uploaded successfully</Message>
               );
               console.log(response, fileInfo);
-              setFileInfo(response?.data?.display_url);
+              setFileInfo(response?.data?.url || response?.data?.display_url);
             }}
             onError={() => {
               setFileInfo(null);
