@@ -84,7 +84,7 @@ const Nav = () => {
       ></div>
       {/* <div className=" absolute top-0 left-0 w-full  bg-gradient-to-b from-blue-900 to-base-1000 h-[15vh] pointer-events-none"></div> */}
       <div
-        className=" absolute top-0 left-0 w-full h-[18vh] pointer-events-none"
+        className=" fixed top-0 left-0 w-full h-[18vh] pointer-events-none"
         style={{
           background:
             "linear-gradient(rgba(82, 0, 255, 0.2) 0%, rgba(0, 102, 255, 0.1) 52.58%, rgba(6, 45, 103, 0) 100%)",
