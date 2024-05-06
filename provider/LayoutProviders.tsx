@@ -8,9 +8,9 @@ import {
   AuthenticationStatus,
   midnightTheme,
   lightTheme,
-  darkTheme
+  darkTheme,
 } from "@rainbow-me/rainbowkit";
-import { WagmiProvider } from "wagmi";
+import { WagmiProvider, useDisconnect } from "wagmi";
 import { optimism, arbitrum, zkSync, scroll, sepolia } from "wagmi/chains";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { SiweMessage } from "siwe";
@@ -59,10 +59,8 @@ export const chainsConf = [
 
 /* New RainbowKit API */
 export const wagmiConfig = getDefaultConfig({
-  appName: "Dapp-Learning",
-  projectId:
-    "0d4ebf4dd799531d3023b883c7a6dc3c" ||
-    `${process.env.NEXT_PUBLIC_WALLET_PROJECTID}`,
+  appName: "bluestone",
+  projectId: `${process.env.NEXT_PUBLIC_WALLET_PROJECTID}`,
   ssr: true,
   // @ts-ignore
   chains: chainsConf,
@@ -77,7 +75,20 @@ export function LayoutProviders({ children }: { children: React.ReactNode }) {
   const [globalLogin, setGlobalLogin] = useState(false);
 
   useEffect(() => {
-    if (!!localStorage.getItem("userToken")) setAuthState("authenticated");
+    fetch("/baseAPI/users/me", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${
+          localStorage.getItem("userToken") &&
+          JSON.parse(localStorage.getItem("userToken") || "")?.access?.token
+        }`,
+      },
+    }).then((res) => {
+      if (res.status === 200) return setAuthState("authenticated");
+      localStorage.removeItem("userToken");
+      setAuthState("unauthenticated");
+    });
   }, []);
 
   const authenticationAdapter = createAuthenticationAdapter({
