@@ -4,6 +4,8 @@ import { useEventDrawerContext } from "@/context/eventDrawer";
 import { GrMapLocation } from "react-icons/gr";
 import { IoMdAdd } from "react-icons/io";
 
+import { useAccount } from "wagmi";
+
 import Link from "next/link";
 
 import dayjs from "dayjs";
@@ -26,6 +28,7 @@ dayjs.extend(relativeTime);
 
 export default function EventDrawer() {
   const { isOpen, setIsOpen, eventTarget } = useEventDrawerContext();
+  const account = useAccount();
 
   const router = useRouter();
 
@@ -67,24 +70,29 @@ export default function EventDrawer() {
             </div>
           </div>
           <div className="p-4 flex flex-col bg-base-200 text-white gap-6 pr-7">
-            <div
-              role="alert"
-              className=" mt-3 bg-[#e6658a] flex justify-between rounded-2xl bg-opacity-15 p-5 pt-2 pb-2 items-center border border-[#de316322]"
-            >
-              <span className=" text-[#e6658a] text-base font-medium">
-                You have access to manage this event
-              </span>
-              <Link href={`/event/manage/${eventTarget?.id}`}>
-                <div className="btn btn-error btn-sm text-gray-100">
-                  Manage
-                  <FaShareFromSquare className=" text-gray-100" />
-                </div>
-              </Link>
-            </div>
+            {account?.address === eventTarget?.creatorWalletAddress && (
+              <div
+                role="alert"
+                className=" mt-3 bg-[#e6658a] flex justify-between rounded-2xl bg-opacity-15 p-5 pt-2 pb-2 items-center border border-[#de316322]"
+              >
+                <span className=" text-[#e6658a] text-base font-medium">
+                  You have access to manage this event
+                </span>
+                <Link href={`/event/manage/${eventTarget?.id}`}>
+                  <div className="btn btn-error btn-sm text-gray-100">
+                    Manage
+                    <FaShareFromSquare className=" text-gray-100" />
+                  </div>
+                </Link>
+              </div>
+            )}
             <div className="flex items-center justify-center">
               <figure className=" w-[280px] h-[280px] mt-12">
                 <img
-                  src={eventTarget?.coverImg}
+                  src={
+                    eventTarget?.coverImg ||
+                    "https://i.ibb.co/hF8XpZL/events-medium.jpg"
+                  }
                   alt="Album"
                   className=" w-full h-full rounded-lg transition-all duration-100 object-cover"
                 />

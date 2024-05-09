@@ -201,10 +201,11 @@ const CreateForm = () => {
                 />
               ) : (
                 <img
-                  src="https://daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.jpg"
+                  // src="https://daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.jpg"
+                  src="https://i.ibb.co/hF8XpZL/events-medium.jpg"
                   // src="/images/Ticket.jpg"
                   alt="Album"
-                  className=" rounded-lg w-[330px] h-[330px]"
+                  className=" rounded-lg w-[330px] h-[330px] object-cover"
                 />
               )}
             </button>

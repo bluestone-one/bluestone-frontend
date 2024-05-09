@@ -43,7 +43,7 @@ export default function Manage({ params }: { params: { id: string } }) {
       <div className="card lg:card-side bg-base-100 shadow-xl mt-3">
         <figure className=" p-5 w-[420px] h-[420px]">
           <img
-            src={data?.coverImg}
+            src={data?.coverImg || "https://i.ibb.co/hF8XpZL/events-medium.jpg"}
             alt="Album"
             className=" w-full h-full rounded-lg transition-all duration-100 object-cover"
           />

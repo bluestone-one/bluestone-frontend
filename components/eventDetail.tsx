@@ -173,7 +173,10 @@ export default function EventDetail({ eventId }: { eventId: string }) {
                   onClick={(e) => e.preventDefault()}
                 >
                   <img
-                    src={data?.coverImg}
+                    src={
+                      data?.coverImg ||
+                      "https://i.ibb.co/hF8XpZL/events-medium.jpg"
+                    }
                     className=" object-cover rounded-lg w-full h-full"
                   />
                 </div>

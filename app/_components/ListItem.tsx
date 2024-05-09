@@ -36,7 +36,7 @@ const ListItem = ({ ticketInfo, onClick }: any) => {
         <img
           src={
             ticketInfo?.coverImg ||
-            "https://daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.jpg"
+            "https://i.ibb.co/hF8XpZL/events-medium.jpg"
           }
           alt="Movie"
           className=" w-full h-full rounded-lg transition-all duration-100 object-cover"
