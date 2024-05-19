@@ -78,7 +78,10 @@ export default function EventDrawer() {
                 <span className=" text-[#e6658a] text-base font-medium">
                   You have access to manage this event
                 </span>
-                <Link href={`/event/manage/${eventTarget?.id}`}>
+                <Link
+                  href={`/event/manage/${eventTarget?.id}`}
+                  onClick={() => setIsOpen?.(false)}
+                >
                   <div className="btn btn-error btn-sm text-gray-100">
                     Manage
                     <FaShareFromSquare className=" text-gray-100" />
