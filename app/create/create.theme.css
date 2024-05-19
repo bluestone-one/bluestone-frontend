@@ -16,7 +16,7 @@
   }
 } */
 
-body {
+/* body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -27,7 +27,7 @@ body {
   .rs-picker-popup-date {
     z-index: 10;
   }
-}
+} */
 
 .rs-picker-toggle-label:after {
   content: none;
