@@ -18,6 +18,7 @@ const config: Config = {
   },
   daisyui: {
     themes: [
+      "dark",
       {
         dark: {
           ...require("daisyui/src/theming/themes")["dark"],
